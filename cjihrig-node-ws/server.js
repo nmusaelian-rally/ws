@@ -22,11 +22,11 @@ wsServer = new WebSocketServer({
 //}
 
 wsServer.on('request', function(request){
-    if (!orignIsAllowed(request.origin)) {
-        request.reject();
-        console.log(new Date() + ' Connection from origin ' + request.origin + ' rejected' );
-        return;
-    }
+    //if (!orignIsAllowed(request.origin)) {
+    //    request.reject();
+    //    console.log(new Date() + ' Connection from origin ' + request.origin + ' rejected' );
+    //    return;
+    //}
     
     var connection = request.accept('echo-protocol', request.origin);
     console.log(new Date() + ' Connection accepted from origin ' + request.origin );
