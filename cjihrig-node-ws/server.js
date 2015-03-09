@@ -7,8 +7,8 @@ var server = http.createServer(function(request,response){
     response.end();
 });
 
-server.listen(8080, function(){
-    console.log(new Date() + 'server is listening on port 8080');
+server.listen(3000, function(){
+    console.log(new Date() + 'server is listening on port 3000');
 });
 
 wsServer = new WebSocketServer({
@@ -32,11 +32,11 @@ wsServer.on('request', function(request){
     console.log(new Date() + ' Connection accepted from origin ' + request.origin );
     connection.on('message', function(message){
         if (message.type === 'utf8') {
-            console.log('Received Message: ' + message.utf8Data);
+            console.log('Received utf8 Message: ' + message.utf8Data);
             connection.sendUTF(message.utf8Data);
         }
         else if (message.type === 'binary') {
-            console.log('Received Message: ' + message.binaryData);
+            console.log('Received binary Message: ' + message.binaryData);
             connection.sendUTF(message.binaryData);
         }
     });
